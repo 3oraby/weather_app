@@ -1,0 +1,16 @@
+{
+    "cSpell.words": [
+        "AMPM",
+        "ARGB",
+        "avgtemp",
+        "datetime",
+        "forecastday",
+        "geolocator",
+        "localtime",
+        "maxtemp",
+        "mintemp",
+        "placemark",
+        "placemarks"
+    ],
+    "cmake.sourceDirectory": "C:/Users/user/AndroidStudioProjects/weather_app/linux"
+}
