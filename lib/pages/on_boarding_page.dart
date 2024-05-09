@@ -28,11 +28,11 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
               // check about the index of the page
               setState(() {
                 // return true if the value become equal to the index of the last page
-                isLastPage = (value == introPagesDataList.length - 1);
+                isLastPage = (value == IntroPageData.introPagesDataList.length - 1);
               });
             },
             children: [
-              for (IntroPageModel item in introPagesDataList)
+              for (IntroPageModel item in IntroPageData.introPagesDataList)
                 IntroPageWidget(item: item),
             ],
           ),
@@ -42,7 +42,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
             child: IntroPageButtons(
               pageController: pageController,
               buttonDescription: isLastPage ? "previous" : "Skip",
-              pageNumbers: introPagesDataList.length,
+              pageNumbers: IntroPageData.introPagesDataList.length,
             ),
           ),
           Align(
@@ -51,7 +51,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                 ? const GetStartedButton()
                 : IntroPageSliderWidget(
                     pageController: pageController,
-                    pageNumbers: introPagesDataList.length,
+                    pageNumbers: IntroPageData.introPagesDataList.length,
                   ),
           ),
         ],

@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app/constants/messages_to_user.dart';
+import 'package:weather_app/functions/delay_and_pop.dart';
 import 'package:weather_app/functions/fetch_weather_data.dart';
 
 class SearchPage extends StatelessWidget {
   const SearchPage({super.key});
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        backgroundColor: Colors.deepPurple,
-        title: const Text(
-          "search for the city",
-          style: TextStyle(
+        backgroundColor: const Color.fromARGB(255, 40, 117, 153),
+        title: Text(
+          MessagesToUser.searchPageAppBarTitle,
+          style: const TextStyle(
             fontSize: 35,
             color: Colors.white,
             fontWeight: FontWeight.bold,
@@ -23,10 +25,7 @@ class SearchPage extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(8),
           child: TextField(
-            onChanged: (value) {
-              // write here the code of auto complete
-            },
-            onSubmitted: (value) {
+            onSubmitted: (value) async {
               if (value.trim().isEmpty) {
                 // Show error message for empty input
                 ScaffoldMessenger.of(context).showSnackBar(
@@ -37,12 +36,12 @@ class SearchPage extends StatelessWidget {
                   ),
                 );
               } else {
-                // do not use await to return immediately to home page and show Loading or Failure Widget to the user
                 fetchWeatherData(
                   context: context,
-                  cityName: value.trim(),
+                  cityName:
+                      value.trim(), // to avoid spaces before and after the text
                 );
-                Navigator.pop(context); // return to the Home Page
+                delayAndPop(context: context);
               }
             },
             decoration: InputDecoration(
@@ -59,9 +58,7 @@ class SearchPage extends StatelessWidget {
               ),
               hintText: "Enter the name of the city..",
               suffixIcon: IconButton(
-                onPressed: () {
-                  // write code for close the keyboard and make search here
-                },
+                onPressed: () => delayAndPop(context: context),
                 icon: const Icon(
                   Icons.search,
                 ),

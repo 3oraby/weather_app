@@ -19,7 +19,7 @@ class CustomDeclareDetails extends StatelessWidget {
           margin: const EdgeInsets.all(16),
           decoration: BoxDecoration(
             color: Colors.blueGrey[900],
-            borderRadius: BorderRadius.circular(100),
+            borderRadius: BorderRadius.circular(30),
           ),
           child: Center(
             child: Text(

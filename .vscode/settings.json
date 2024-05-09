@@ -10,7 +10,8 @@
         "maxtemp",
         "mintemp",
         "placemark",
-        "placemarks"
+        "placemarks",
+        "unfocus"
     ],
     "cmake.sourceDirectory": "C:/Users/user/AndroidStudioProjects/weather_app/linux"
 }

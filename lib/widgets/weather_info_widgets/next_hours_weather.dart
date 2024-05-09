@@ -30,11 +30,12 @@ class NextHoursWeather extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             itemCount: nextHoursList.length,
             separatorBuilder: (context, index) => const VerticalDivider(
-              width: 30,
+              width: 50,
               thickness: 1,
             ),
             itemBuilder: (context, index) => CustomNextHoursWidget(
-              hourWeatherModel: nextHoursList[index],  
+              hourWeatherModel: nextHoursList[index],
+              isCurrent : (index == 0) ? true : false,  
             ),
           ),
         ),

@@ -1,14 +1,7 @@
 import 'package:flutter/material.dart';
 
-class HomePageDrawer extends StatefulWidget {
+class HomePageDrawer extends StatelessWidget {
   const HomePageDrawer({super.key});
-
-  @override
-  State<HomePageDrawer> createState() => _HomePageDrawerState();
-}
-
-class _HomePageDrawerState extends State<HomePageDrawer> {
-  bool isSelected = false;
 
   @override
   Widget build(BuildContext context) {
@@ -50,33 +43,6 @@ class _HomePageDrawerState extends State<HomePageDrawer> {
               thickness: 2,
               indent: 8,
               endIndent: 8,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(16),
-              child: Row(
-                children: [
-                  Text(
-                    "Dark Mode",
-                    style: TextStyle(
-                      fontSize: 22,
-                      color: Colors.blueGrey[900],
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  const SizedBox(
-                    width: 16,
-                  ),
-                  Switch(
-                    value: isSelected,
-                    onChanged: (value) {
-                      setState(() {
-                        isSelected = value;
-                      });
-                    },
-                    activeColor: Colors.blueGrey[900],
-                  ),
-                ],
-              ),
             ),
           ],
         ),

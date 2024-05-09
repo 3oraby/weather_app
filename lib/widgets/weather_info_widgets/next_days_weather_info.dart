@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:weather_app/constants/home_page_constants.dart';
+import 'package:weather_app/constants/weather_body_constants.dart';
 import 'package:weather_app/functions/datetime_formatter.dart';
 import 'package:weather_app/models/current_weather_model.dart';
 
@@ -13,25 +13,20 @@ class NextDaysWeather extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.separated(
+    return ListView.builder(
       shrinkWrap: true,
       itemCount: daysWeatherList.length,
       physics: const NeverScrollableScrollPhysics(),
-      separatorBuilder: (context, index) => Divider(
-        thickness: 1,
-        indent: 40,
-        endIndent: 40,
-        height: 64,
-        color: Colors.blueGrey[900],
-      ),
       itemBuilder: (context, index) => Container(
-        margin: const EdgeInsets.all(16),
-        height: 100,
+        margin: const EdgeInsets.symmetric(
+          vertical: 32,
+          horizontal: 16,
+        ),
+        height: 120,
         decoration: BoxDecoration(
-          color: Colors.blue,
-          borderRadius: BorderRadius.circular(40),
+          borderRadius: BorderRadius.circular(50),
           gradient:
-              index == 0 ? currentWeatherLinearGradient : linearGradientColor,
+              index == 0 ? WeatherBodyConstants.currentWeatherLinearGradient : WeatherBodyConstants.linearGradientColor,
         ),
         child: Stack(
           clipBehavior: Clip.none,
@@ -41,8 +36,8 @@ class NextDaysWeather extends StatelessWidget {
               left: 20,
               child: Lottie.asset(
                 daysWeatherList[index].imageName,
-                height: 100,
-                width: 100,
+                height: 120,
+                width: 120,
               ),
             ),
             Positioned(
@@ -54,11 +49,7 @@ class NextDaysWeather extends StatelessWidget {
                   index == 0
                       ? "Today"
                       : getDayName(daysWeatherList[index].lastUpdated),
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.grey[900],
-                    fontSize: 25,
-                  ),
+                  style: WeatherBodyConstants.nextDaysTextStyle,
                 ),
               ),
             ),
@@ -94,11 +85,7 @@ class NextDaysWeather extends StatelessWidget {
               child: Center(
                 child: Text(
                   daysWeatherList[index].weatherCondition,
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.grey[900],
-                    fontSize: 25,
-                  ),
+                  style: WeatherBodyConstants.nextDaysTextStyle,
                 ),
               ),
             ),
